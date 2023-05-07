@@ -9,7 +9,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
 
@@ -348,6 +348,7 @@ a{
     font-size: 90px;
     text-align: center;
     padding-top: 30px;
+    font-family: "Be Vietnam Pro", sans-serif;
 }
 
 .projectContainer{
@@ -362,7 +363,7 @@ a{
 .projectCard{
     width: 90%;  
     height: 550px;
-    background-image: url(./projects/Project2.png);
+    background-image: url(./projects/Project1.png);
     background-size: cover;
     /* background-repeat: no-repeat; */
     position: relative;
@@ -379,9 +380,283 @@ a{
     bottom: 0;
     background-color: #1f1f1f9a;
     transform: scaleX(1);
+    z-index: 0;
 }
 
 .projectCard::before{
     content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #343d68, #343d68be, #343d687c);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition-duration: 0.4s;
+    z-index: 1;
+}
 
+.projectCard:hover::before{
+    transform: scaleX(1);
+}
+
+.projectNumber{
+    position: absolute;
+    font-size: 200px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    z-index: 5;
+    font-family: "Be Vietnam Pro", sans-serif;
+    display: none;
+    /* transition: all 0.4s; */
+}
+
+.projectCard:hover .projectNumber{
+    display: block;
+}
+
+.projectNumberRight{
+    top: -40px;
+    right: -45px;
+}
+.projectNumberLeft{
+    top: -40px;
+    left: -45px;
+}
+
+.projectContent{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 2em;
+    bottom: 20%;
+    z-index: 5;
+    gap: 1em;
+    transition: all 0.4s;
+}
+
+.projectContentLeft{
+    left: 10%;
+}
+.projectContentRight{
+    right: 10%;
+}
+
+.projectSkillContainer{
+    width: 60%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+}
+
+.projectSkill{
+    width: 40px;
+}
+
+.projectHeading{
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 3rem;
+    font-family: "Be Vietnam Pro", sans-serif
+}
+
+.projectSubHeading{
+    font-family: "Be Vietnam Pro", sans-serif;
+    width: 70%;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.btnGrp{
+    display: flex;
+    gap: 0.9rem;
+    align-items: center;
+}
+
+.icon{
+    cursor: pointer;
+    color: white;
+    font-size: 35px;
+    transition: 0.4s;
+}
+
+.icon:hover{
+    color: #e84949;
+}
+
+.projectCard:hover .projectContent{
+    transform: scale(1.1);
+}
+
+#project1{
+    background-image: url(./projects/Project1.png);
+}
+#project2{
+    margin-left: 120px;
+    background-image: url(./projects/Project2.png);
+}
+#project3{
+    background-image: url(./projects/Project3.png);
+}
+#project4{
+    margin-left: 120px;
+    background-image: url(./projects/Project4.png);
+}
+
+@media (max-width:1300px){
+    .pageHeader{
+        padding-top: 30px;
+        color: #e84949;
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .projectContainer{
+        padding: 5px;
+        margin: 10px;
+        gap: 60px;
+    }
+
+    .projectCard{
+        width: 100%;
+        height: 300px;
+    }
+
+    .projectCard{
+        background-size: cover;
+        background-position: center;
+    }
+
+    .projectContent{
+        scale: 0.5;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .projectContentLeft{
+        left: 0;
+    }
+
+    .projectHeading{
+        font-size: 40px;
+        width: 100%;
+    }
+
+    .projectSubHeading{
+        width: 100%;
+    }
+
+    #project2{
+        margin-left: 0;
+    }
+
+    #project4{
+        margin-left: 0;
+    }
+
+    .projectSkillContainer{
+        width: 100%;
+    }
+    .projectSkill{
+        width: 35px;
+    }
+
+    .projectCard:hover .projectNumber{
+        display: none;
+    }
+
+    .projectCard:hover .projectContent{
+        scale: 0.55;
+    }
+}
+
+/* #skills{
+     height: 100%;
+    width: 100%;
+} */
+
+
+.skillsContainer{
+    /* width: 1200px; */
+    /* height: 640px; */
+    position: relative;
+    display: flex;
+    padding: 5rem;
+    margin: 10rem auto;
+    gap: 30px;
+}   
+
+.skillsContainerLeft{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.skillsContainerRight{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    position: relative;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.skillsFadedText{
+    position: absolute;
+    font-size: 12rem;
+    font-style: bold;
+    color: rgb(231, 231, 231);
+    bottom: -35.4%;
+    right: -6%;
+    user-select: none;
+}
+
+.blobStyle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -5;
+    animation: blobAnimation 3s  linear infinite ;
+}
+
+@keyframes blobAnimation {
+    50%{
+        top: 54%;
+        left: 56%;
+    }
+}
+
+.skillsLogo{
+    width: 90px;
+    transition: all 0.5s;
+}
+.skillsLogo:hover{
+    transform: scale(1.2);
+}
+
+.skillsHeading{
+    font-size: 50px;
+    font-style: bold;
+    color: #e84949;
+    line-height: 50px;
+}
+
+.caps{
+    font-size: 90px;
+}
+
+.skillsSubHeading{
+    margin-top: 1rem;
+    width: 85%;
+    text-align: justify;
+}
+
+.skillsSubHeading p{
+    max-resolution: 15px 0;
 }
